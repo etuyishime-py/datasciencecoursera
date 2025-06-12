@@ -167,3 +167,28 @@ table(data$Animals)
 # the column called “pid7”
 cces_sample <- read.csv("Sample_data.csv")
 hist(cces_sample$pid7)
+
+### Module 2: tidyverse
+vignette("tidy-data") # or visit tidyverse.org
+install.packages("tidyverse")
+library(tidyverse)
+
+data(mtcars) # example data
+dim(mtcars)
+head(mtcars)
+str(mtcars)
+
+#*** use tidyverse
+ cces <- read_csv ("Sample_data.csv")
+
+ # switch between tibble or data_frame
+ 
+ cces_dataframe <- as.data.frame(cces)
+ cces_tibble <- as_tibble(cces_dataframe)
+ 
+# Drop rows with missing data in any cell
+ cces <- drop_na(cces)
+ 
+# use the filter function to select only women respondents
+ table(cces$gender)
+ women <- filter(cces,gender==2)
